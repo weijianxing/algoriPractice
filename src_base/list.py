@@ -97,6 +97,27 @@ class Solution:
                 if not (jw == a[i] == b[i] == '0'):
                     jw = '1'
         return res if jw == '0' else '1' + res
+    def merge(self, intervals: list) -> list:
+        ret = []
+        size = len(intervals)
+        for i in range(size):
+            for j in range (size - i):
+                comp = intervals[i]
+                if(intervals[i][0]<intervals[j][0] and  intervals[i][1]<intervals[j][1]):
+                    comp[0] = intervals[i][0]
+                    comp[1] = intervals[j][1]
+                    # intervals.remove(intervals[i])
+                if(comp[0]<intervals[j][0] and  comp[1]<intervals[j][1]):
+                    comp[1] = intervals[j][1]
+                    # intervals.remove(intervals[j])
+            ret.append(comp)
+        return ret
+    def climbStairs(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        return self.climbStairs(n - 1) + self.climbStairs(n - 2) if n > 2 else n
 if __name__ == '__main__':
     # l12 = ListNode(3)
     # l11 = ListNode(4,l12)
@@ -112,5 +133,6 @@ if __name__ == '__main__':
     #     print(ln.val)
     #     ln= ln.next
     s = Solution()
-    print(s.plusOne([9,9,9,9]))
+    # print(s.plusOne([9,9,9,9]))
+    print(s.merge([[1,3],[2,6],[8,10],[15,18]]))
     # print(s.plusOne([9]))
