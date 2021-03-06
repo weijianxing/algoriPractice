@@ -22,6 +22,12 @@ class Solution:
         if(carry>0):
             r.next=ListNode(1)
         return re.next
+    def deleteDuplicates(self, head: ListNode) -> ListNode:
+        while(head):
+            next = head.next
+            if head.val == next.val:
+                head.next = head.next.next
+            head = head.next
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         r = ListNode(None)
         re = r
@@ -118,6 +124,17 @@ class Solution:
         :rtype: int
         """
         return self.climbStairs(n - 1) + self.climbStairs(n - 2) if n > 2 else n
+    def sortColors(self, nums: list) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        for i in range(len(nums)):
+            for j in range(len(nums)):
+                if nums[i]<nums[j]:
+                    nums[i] = nums[j]^nums[i]
+                    nums[j] = nums[i]^nums[j]
+                    nums[i] = nums[j]^nums[i]
+        print(nums)
 if __name__ == '__main__':
     # l12 = ListNode(3)
     # l11 = ListNode(4,l12)
@@ -134,5 +151,5 @@ if __name__ == '__main__':
     #     ln= ln.next
     s = Solution()
     # print(s.plusOne([9,9,9,9]))
-    print(s.merge([[1,3],[2,6],[8,10],[15,18]]))
+    print(s.sortColors([2,0,2,1,1,0]))
     # print(s.plusOne([9]))
