@@ -35,7 +35,13 @@ class Solution:
                 ret.append(cur.val)
                 cur = cur.right
         return ret
-
+    def maxDepth(self, root: TreeNode) -> int:
+        if root is None:
+            return 0
+        else:
+            left_height = self.maxDepth(root.left)
+            right_height = self.maxDepth(root.right)
+            return max(left_height, right_height) + 1
 if __name__ == '__main__':
     l =  TreeNode(2)
     root = TreeNode(1,left = l)
