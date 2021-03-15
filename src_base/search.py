@@ -36,9 +36,24 @@ def binarySearchw(data: list, target):
         else:
             end = mid -1
 
+def swap(a,b):
+    a = a^b
+    b = a^b
+    a = a^b
+    print(a)
+    print(b)
+
+def swap2(a,b):
+    a = a&b
+    b = a&b
+    a = a&b
+    print(a)
+    print(b)
+
 if __name__ == "__main__":
     data = [2,4,7,8,12, 14,16,20,21]
     # print(1//2)
     # print(data[4:])
-    print("result:")
-    print(binarySearchw(data, 8))
+    # print("result:")
+    # print(binarySearchw(data, 8))
+    swap2(2,3)
