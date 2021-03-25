@@ -76,6 +76,7 @@ def isMatch( s: str, p: str) -> bool:
     return re.fullmatch(p,s)
 def strStr( haystack: str, needle: str) -> int:
     return haystack.find(needle)
+
 def isValid( s: str) -> bool:
     if len(s)%2>0:
         return False
