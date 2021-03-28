@@ -54,7 +54,14 @@ class Solution():
         return maxprof
 
 
-
+    def maxProfit2(self, prices: list) -> int:
+        size = len(prices)
+        maxprof = 0
+        for i in range(size -1):
+           prof = prices[i+1] - prices[i]
+           if prof>0:
+            maxprof +=  prof
+        return maxprof
 
 
 
@@ -63,7 +70,7 @@ if __name__ == '__main__':
     nums =  [7,1,5,3,6,4]
     # nums.append([4,3,2,7,8,2,3,1])
     s = Solution()
-    print(s.maxProfit(nums))
+    print(s.maxProfit2(nums))
 
 
 
